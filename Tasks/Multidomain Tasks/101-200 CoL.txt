@@ -1,0 +1,204 @@
+#load(quadratic)
+#load(family)
+new:x = 1;
+$x^2 - 28*$x == -24; x --> "#FILE(SCREEN)";
+$x^2 - 10*$x + 12 == 0; x --> "#FILE(SCREEN)";
+$x == 4*$x^2 + 3; x --> "#FILE(SCREEN)";
+7 == ($x - 2)*$x; x --> "#FILE(SCREEN)";
+$x + 8*$x^2 == 9 + $x; x --> "#FILE(SCREEN)";
+$x^2 == 8 + 10*$x; x --> "#FILE(SCREEN)";
+$x^2 + 5 == 4*$x; x --> "#FILE(SCREEN)";
+35 + $x == 20*$x^2; x --> "#FILE(SCREEN)";
+($x + 19)*$x == 13; x --> "#FILE(SCREEN)";
+$x^2 - 3 == $x + 7; x --> "#FILE(SCREEN)";
+15*$x^2 - 8*$x == 12; x --> "#FILE(SCREEN)";
+16*$x^2 == 18 - $x; x --> "#FILE(SCREEN)";
+2*($x - 1) == $x^2; x --> "#FILE(SCREEN)";
+9*($x + 10) == $x^2 - 8; x --> "#FILE(SCREEN)";
+$x^2 + 14*$x == 23 + $x; x --> "#FILE(SCREEN)";
+10*$x^2 + 8*$x == 20; x --> "#FILE(SCREEN)";
+$x^2 + $x + 7 == 0; x --> "#FILE(SCREEN)";
+9*$x^2 + $x == 7; x --> "#FILE(SCREEN)";
+20*$x == 18 - $x^2; x --> "#FILE(SCREEN)";
+24 == $x*($x - 18); x --> "#FILE(SCREEN)";
+0 == ($x - 8)*($x + 4); x --> "#FILE(SCREEN)";
+12 == $x^2 + 10 - 6*$x; x --> "#FILE(SCREEN)";
+$x^2 + 8*$x + 1 == 0; x --> "#FILE(SCREEN)";
+$x^2 + 10*$x == 19 + $x; x --> "#FILE(SCREEN)";
+2*$x + $x^2 == 15; x --> "#FILE(SCREEN)";
+0 == $x*($x + 25) - 40; x --> "#FILE(SCREEN)";
+$x^2 + 19 == 12*$x + 13; x --> "#FILE(SCREEN)";
+($x - 16)*($x + 22) == $x; x --> "#FILE(SCREEN)";
+$x^2 + 9*$x + 6 == 10; x --> "#FILE(SCREEN)";
+$x^2 + 31 == 38*$x; x --> "#FILE(SCREEN)";
+$x*($x - 26) == 35 - $x; x --> "#FILE(SCREEN)";
+$x^2 + 21*$x == 30; x --> "#FILE(SCREEN)";
+$x^2 + 15*$x - 8 == 0; x --> "#FILE(SCREEN)";
+$x^2 == 5 - 4*$x; x --> "#FILE(SCREEN)";
+($x + 30)^2 == 14*$x; x --> "#FILE(SCREEN)";
+10*$x^2 + 12*$x == 15; x --> "#FILE(SCREEN)";
+$x^2 - 6 == 2*$x + 3; x --> "#FILE(SCREEN)";
+$x^2 - 14*$x == 10 + $x; x --> "#FILE(SCREEN)";
+5*$x + 12 == $x^2 + 9; x --> "#FILE(SCREEN)";
+$x*($x - 3) == 7; x --> "#FILE(SCREEN)";
+($x + 24)^2 == 20*$x; x --> "#FILE(SCREEN)";
+$x*($x + 12) == 15 - $x; x --> "#FILE(SCREEN)";
+7 + 9*$x == $x^2; x --> "#FILE(SCREEN)";
+2*($x + 6) == $x^2; x --> "#FILE(SCREEN)";
+$x^2 + $x == 1 - 4*$x; x --> "#FILE(SCREEN)";
+30 + $x == 25*$x^2; x --> "#FILE(SCREEN)";
+$x^2 + ($x + 12) == 0; x --> "#FILE(SCREEN)";
+$x^2 + 36*$x == 33; x --> "#FILE(SCREEN)";
+8*$x^2 - 7 == 14*$x; x --> "#FILE(SCREEN)";
+($x + 11)*($x - 10) == 7; x --> "#FILE(SCREEN)";
+new:relation = "";
+// [Hugh] invited his nephew [Charles] to go hunting with him on Saturday. [Charles] said he would love to go with him. [Martha] loves her mother, [Lena]. [Lena]'s son, [Charles], feels the same way. ans: (Hugh) is (Martha)s uncle 
+new:Martha = "Martha"; new:Lena = "Lena"; new:Charles = "Charles"; new:Hugh = "Hugh";
+(Lena) is (Martha)s mother & (Charles) is (Lena)s son & (Hugh) is (Charles)s uncle & (Hugh) is (Martha)s ($relation); relation-->"#FILE(SCREEN)";
+// [Cindy] had lunch with her brother [Hugh]. She told him about her son [Wayne] getting a scholarship. [Wesley] tripped his brother [Hugh] in the living room. ans: (Wayne) is (Wesley)s nephew 
+new:Wesley = "Wesley"; new:Hugh = "Hugh"; new:Cindy = "Cindy"; new:Wayne = "Wayne";
+(Hugh) is (Wesley)s brother & (Cindy) is (Hugh)s sister & (Wayne) is (Cindy)s son & (Wayne) is (Wesley)s ($relation); relation-->"#FILE(SCREEN)";
+// [Richard]'s father, [Francisco], bought him some ice cream. [Cindy] sat anxiously in the airport terminal, waiting to see her son [Richard] walk through the gate. [Cindy] is ready to dye Easter eggs with [Carrie]! ans: (Francisco) is (Carrie)s father 
+new:Carrie = "Carrie"; new:Cindy = "Cindy"; new:Richard = "Richard"; new:Francisco = "Francisco";
+(Cindy) is (Carrie)s mother & (Richard) is (Cindy)s son & (Francisco) is (Richard)s father & (Francisco) is (Carrie)s ($relation); relation-->"#FILE(SCREEN)";
+// [Bobby] is in the same grade as his sister [Evangeline], but his sister [Gloria] is 2 years ahead of him. [Marie] was talking about food with her sister [Evangeline]. ans: (Gloria) is (Marie)s sister 
+new:Marie = "Marie"; new:Evangeline = "Evangeline"; new:Bobby = "Bobby"; new:Gloria = "Gloria";
+(Evangeline) is (Marie)s sister & (Bobby) is (Evangeline)s brother & (Gloria) is (Bobby)s sister & (Gloria) is (Marie)s ($relation); relation-->"#FILE(SCREEN)";
+// [Lena] and her brother [Hugh] are both adopted from the same family. [Hugh] liked playing with his brother [Francisco] more than anyone else. This made [Lynn] jealous of her brother [Francisco]. ans: (Lena) is (Lynn)s sister 
+new:Lynn = "Lynn"; new:Francisco = "Francisco"; new:Hugh = "Hugh"; new:Lena = "Lena";
+(Francisco) is (Lynn)s brother & (Hugh) is (Francisco)s brother & (Lena) is (Hugh)s sister & (Lena) is (Lynn)s ($relation); relation-->"#FILE(SCREEN)";
+// [Hugh] went out to lunch with his sisters [Lena] and [Cindy]. [Cindy] had to get a babysitter for her daughter [Carrie] so she could go. ans: (Lena) is (Carrie)s aunt 
+new:Carrie = "Carrie"; new:Cindy = "Cindy"; new:Hugh = "Hugh"; new:Lena = "Lena";
+(Cindy) is (Carrie)s mother & (Hugh) is (Cindy)s brother & (Lena) is (Hugh)s sister & (Lena) is (Carrie)s ($relation); relation-->"#FILE(SCREEN)";
+// [Gloria] asked her father, [Hugh], if he could take her to school. [Hugh] was busy, but his brother [Francisco] had time, so he took her instead. [Joshua] is excited to cheer on his brother [Francisco] in the homecoming game tonight. ans: (Joshua) is (Gloria)s uncle 
+new:Gloria = "Gloria"; new:Hugh = "Hugh"; new:Francisco = "Francisco"; new:Joshua = "Joshua";
+(Hugh) is (Gloria)s father & (Francisco) is (Hugh)s brother & (Joshua) is (Francisco)s brother & (Joshua) is (Gloria)s ($relation); relation-->"#FILE(SCREEN)";
+// [Francisco] started to make [Chris] a sandwich for lunch, [Joshua] has always felt ignored in his big family. His brother [Wesley] always got all the attention of their parents, who recounted his every accomplishment to all the household. [Wesley] decided to take his son, [Chris], on a ski vacation. ans: (Francisco) is (Joshua)s brother 
+new:Joshua = "Joshua"; new:Wesley = "Wesley"; new:Chris = "Chris"; new:Francisco = "Francisco";
+(Wesley) is (Joshua)s brother & (Chris) is (Wesley)s son & (Francisco) is (Chris)s uncle & (Francisco) is (Joshua)s ($relation); relation-->"#FILE(SCREEN)";
+// [Richard] is a factory worker. He has a wonderful sister by the name of [Natasha]. [Wayne] loves his grandmother, [Frances], and sends her flowers every day. [Richard] is [Wayne]'s brother and they are best friends. ans: (Natasha) is (Frances)s granddaughter 
+new:Frances = "Frances"; new:Wayne = "Wayne"; new:Richard = "Richard"; new:Natasha = "Natasha";
+(Wayne) is (Frances)s grandson & (Richard) is (Wayne)s brother & (Natasha) is (Richard)s sister & (Natasha) is (Frances)s ($relation); relation-->"#FILE(SCREEN)";
+// [Evangeline] gave her Aunt [Lynn] a kiss. [Evangeline] is the happy daughter of her adoring father [Hugh]. [Frances] was so proud of her daughter [Lynn] for getting straight A's this semester. ans: (Frances) is (Hugh)s mother 
+new:Hugh = "Hugh"; new:Evangeline = "Evangeline"; new:Lynn = "Lynn"; new:Frances = "Frances";
+(Evangeline) is (Hugh)s daughter & (Lynn) is (Evangeline)s aunt & (Frances) is (Lynn)s mother & (Frances) is (Hugh)s ($relation); relation-->"#FILE(SCREEN)";
+// [Hugh] and [Joseph] get along pretty well but it has nothing to do with [Hugh] being the uncle of [Joseph]. [Lynn] went on a fishing trip with her youngest child, [Joseph], and her brother [Wesley]. ans: (Hugh) is (Wesley)s brother 
+new:Wesley = "Wesley"; new:Lynn = "Lynn"; new:Joseph = "Joseph"; new:Hugh = "Hugh";
+(Lynn) is (Wesley)s sister & (Joseph) is (Lynn)s son & (Hugh) is (Joseph)s uncle & (Hugh) is (Wesley)s ($relation); relation-->"#FILE(SCREEN)";
+// [Francisco] took his son [Wayne] for boxing lessons. He felt the boy needed to toughen up. [Wesley] was busy planning his nephew, [Wayne]'s, birthday party with his sister. [Wesley]'s sister, [Lynn], was crying, so he told her a joke. She laughed, and felt better. ans: (Lynn) is (Francisco)s sister 
+new:Francisco = "Francisco"; new:Wayne = "Wayne"; new:Wesley = "Wesley"; new:Lynn = "Lynn";
+(Wayne) is (Francisco)s son & (Wesley) is (Wayne)s uncle & (Lynn) is (Wesley)s sister & (Lynn) is (Francisco)s ($relation); relation-->"#FILE(SCREEN)";
+// [Frances] took her granddaughter [Marie] to the mall. [Marie]'s dad [Hugh] was happy to have the house to himself. [Bobby] asked his father, [Hugh], to help him with his math homework. [Hugh] could n't, because he was lousy at math himself. ans: (Frances) is (Bobby)s grandmother 
+new:Bobby = "Bobby"; new:Hugh = "Hugh"; new:Marie = "Marie"; new:Frances = "Frances";
+(Hugh) is (Bobby)s father & (Marie) is (Hugh)s daughter & (Frances) is (Marie)s grandmother & (Frances) is (Bobby)s ($relation); relation-->"#FILE(SCREEN)";
+// Once [Lena] went inside her home safely, her brother [Hugh] took his daughter [Gloria] to preschool. [Gloria] did n't enjoy spending time with her aunt [Lynn]. ans: (Lynn) is (Lena)s sister 
+new:Lena = "Lena"; new:Hugh = "Hugh"; new:Gloria = "Gloria"; new:Lynn = "Lynn";
+(Hugh) is (Lena)s brother & (Gloria) is (Hugh)s daughter & (Lynn) is (Gloria)s aunt & (Lynn) is (Lena)s ($relation); relation-->"#FILE(SCREEN)";
+// [Charles] asked his father, [Wesley], to help him with his math homework. [Wesley] could n't, because he was lousy at math himself. [Wesley] is a sibling of [Joshua]. [James] decided to give his son [Joshua], for his birthday, the latest version of Apple watch. ans: (James) is (Charles)s grandfather 
+new:Charles = "Charles"; new:Wesley = "Wesley"; new:Joshua = "Joshua"; new:James = "James";
+(Wesley) is (Charles)s father & (Joshua) is (Wesley)s brother & (James) is (Joshua)s father & (James) is (Charles)s ($relation); relation-->"#FILE(SCREEN)";
+// [Martha] was trying to tell her father [Wesley] that she needed help in the kitchen. [Wesley] did n't hear her because he was busy playing baseball with his son [Chris]. [Chris] likes to go fishing with his sister. Her name is [Pamela]. ans: (Pamela) is (Martha)s sister 
+new:Martha = "Martha"; new:Wesley = "Wesley"; new:Chris = "Chris"; new:Pamela = "Pamela";
+(Wesley) is (Martha)s father & (Chris) is (Wesley)s son & (Pamela) is (Chris)s sister & (Pamela) is (Martha)s ($relation); relation-->"#FILE(SCREEN)";
+// [Hugh] and his daughter [Marie] went to see [Hugh]'s father [James] to see how he was feeling because he had been sick with the flu. [Marie] loves visiting with her aunt [Cindy]. ans: (Cindy) is (James)s daughter 
+new:James = "James"; new:Hugh = "Hugh"; new:Marie = "Marie"; new:Cindy = "Cindy";
+(Hugh) is (James)s son & (Marie) is (Hugh)s daughter & (Cindy) is (Marie)s aunt & (Cindy) is (James)s ($relation); relation-->"#FILE(SCREEN)";
+// [Chris] loved his mother, [Lena]. [Hugh] took his daughter, [Gloria], to the father daughter dance at church. [Hugh] took his nephew [Chris] to the park to teach him how to ride a bike. ans: (Gloria) is (Lena)s niece 
+new:Lena = "Lena"; new:Chris = "Chris"; new:Hugh = "Hugh"; new:Gloria = "Gloria";
+(Chris) is (Lena)s son & (Hugh) is (Chris)s uncle & (Gloria) is (Hugh)s daughter & (Gloria) is (Lena)s ($relation); relation-->"#FILE(SCREEN)";
+// [Lynn] is best friends with her sister [Cindy]. [Cindy] does not get along with her brother [Wesley]. [Chris] asked his father, [Wesley], to help him with his math homework. [Wesley] could n't, because he was lousy at math himself. ans: (Cindy) is (Chris)s aunt 
+new:Chris = "Chris"; new:Wesley = "Wesley"; new:Lynn = "Lynn"; new:Cindy = "Cindy";
+(Wesley) is (Chris)s father & (Lynn) is (Wesley)s sister & (Cindy) is (Lynn)s sister & (Cindy) is (Chris)s ($relation); relation-->"#FILE(SCREEN)";
+// [Pamela] and her brother [Charles] went to the basketball game and had a great time. [James] surprised her wife [Frances] with tickets to a baseball game. [Frances] decided to take her grandson, [Charles], to the game. ans: (Pamela) is (James)s granddaughter 
+new:James = "James"; new:Frances = "Frances"; new:Charles = "Charles"; new:Pamela = "Pamela";
+(Frances) is (James)s wife & (Charles) is (Frances)s grandson & (Pamela) is (Charles)s sister & (Pamela) is (James)s ($relation); relation-->"#FILE(SCREEN)";
+// [Cindy] was playing in the sandbox with her brother [Hugh]. [Frances] adores her son Micheal. Micheal's father [James] is a great dad. [James] is raising his daughter, [Cindy] all by himself. ans: (Hugh) is (Frances)s son 
+new:Frances = "Frances"; new:James = "James"; new:Cindy = "Cindy"; new:Hugh = "Hugh";
+(James) is (Frances)s husband & (Cindy) is (James)s daughter & (Hugh) is (Cindy)s brother & (Hugh) is (Frances)s ($relation); relation-->"#FILE(SCREEN)";
+// [Lynn] loves to watch stand up comedy with her brother. His name is [Wesley]. [Lena] went to the store with her sister [David]. Later that day, [Lena] had tea with her sister [Lynn]. ans: (David) is (Wesley)s sister 
+new:Wesley = "Wesley"; new:Lynn = "Lynn"; new:Lena = "Lena"; new:David = "David";
+(Lynn) is (Wesley)s sister & (Lena) is (Lynn)s sister & (David) is (Lena)s sister & (David) is (Wesley)s ($relation); relation-->"#FILE(SCREEN)";
+// [Hugh] is the loving father of a beautiful girl named [Evangeline]. [Bobby] loves to play baseball with his dad, [Hugh]. [Bobby] and his uncle [Wesley] went hunting. [Wesley] got a nice twelve point buck, but he let [Bobby] say it was his. ans: (Wesley) is (Evangeline)s uncle 
+new:Evangeline = "Evangeline"; new:Hugh = "Hugh"; new:Bobby = "Bobby"; new:Wesley = "Wesley";
+(Hugh) is (Evangeline)s father & (Bobby) is (Hugh)s son & (Wesley) is (Bobby)s uncle & (Wesley) is (Evangeline)s ($relation); relation-->"#FILE(SCREEN)";
+// [Charles] brought home straight A's to his father [Wesley]. [Chris] brought home straight C's to his father [Wesley]. [Charles] visited his aunt [David]. ans: (David) is (Chris)s aunt 
+new:Chris = "Chris"; new:Wesley = "Wesley"; new:Charles = "Charles"; new:David = "David";
+(Wesley) is (Chris)s father & (Charles) is (Wesley)s son & (David) is (Charles)s aunt & (David) is (Chris)s ($relation); relation-->"#FILE(SCREEN)";
+// [Joseph] and his brother [Don] went to the boxing match. [Felicia] was upset her brother [Joseph] did n't invite her. [James]'s granddaughter [Felicia] is going off to college. ans: (Don) is (James)s grandson 
+new:James = "James"; new:Felicia = "Felicia"; new:Joseph = "Joseph"; new:Don = "Don";
+(Felicia) is (James)s granddaughter & (Joseph) is (Felicia)s brother & (Don) is (Joseph)s brother & (Don) is (James)s ($relation); relation-->"#FILE(SCREEN)";
+// [Frances] took her grandaughter, [Carrie] to the movie. [Francisco], [Carrie]'s father was already there with his son, [Wayne]. ans: (Wayne) is (Frances)s grandson 
+new:Frances = "Frances"; new:Carrie = "Carrie"; new:Francisco = "Francisco"; new:Wayne = "Wayne";
+(Carrie) is (Frances)s granddaughter & (Francisco) is (Carrie)s father & (Wayne) is (Francisco)s son & (Wayne) is (Frances)s ($relation); relation-->"#FILE(SCREEN)";
+// [David]'s brother [Wesley] joined the Army. While he was overseas, he left his daughter, [Martha], in [David]'s care. [Francisco], [Martha]'s uncle, recently got into fishing. ans: (Francisco) is (David)s brother 
+new:David = "David"; new:Wesley = "Wesley"; new:Martha = "Martha"; new:Francisco = "Francisco";
+(Wesley) is (David)s brother & (Martha) is (Wesley)s daughter & (Francisco) is (Martha)s uncle & (Francisco) is (David)s ($relation); relation-->"#FILE(SCREEN)";
+// [Lena] called [David], her sister, to see if she wanted to go out to eat. [Cindy] is getting married. She is looking forward to her sister, [David], attending. They have n't seen each other since [David] relocated to California with her husband 3 years ago. [Cindy] is the mother of a son named [Richard]. ans: (Lena) is (Richard)s aunt 
+new:Richard = "Richard"; new:Cindy = "Cindy"; new:David = "David"; new:Lena = "Lena";
+(Cindy) is (Richard)s mother & (David) is (Cindy)s sister & (Lena) is (David)s sister & (Lena) is (Richard)s ($relation); relation-->"#FILE(SCREEN)";
+// [Bobby]'s father [Hugh] and sister [Evangeline] went out to dinner with [Hugh]'s wife, [David]. ans: (Evangeline) is (David)s daughter 
+new:David = "David"; new:Hugh = "Hugh"; new:Bobby = "Bobby"; new:Evangeline = "Evangeline";
+(Hugh) is (David)s husband & (Bobby) is (Hugh)s son & (Evangeline) is (Bobby)s sister & (Evangeline) is (David)s ($relation); relation-->"#FILE(SCREEN)";
+// [Charles] and his sister [Martha] went to the ice skating rink. [Charles] fell down and [Martha] laughed at him. [Wesley] took his daughter [Martha] out for ice cream. His other daughter, [Pamela], was still in school and could not go. ans: (Pamela) is (Charles)s sister 
+new:Charles = "Charles"; new:Martha = "Martha"; new:Wesley = "Wesley"; new:Pamela = "Pamela";
+(Martha) is (Charles)s sister & (Wesley) is (Martha)s father & (Pamela) is (Wesley)s daughter & (Pamela) is (Charles)s ($relation); relation-->"#FILE(SCREEN)";
+// [Francisco]'s wife, [Cindy], was eager to plan a perfect birthday party for [Carrie], [Francisco]'s daughter. [Frances], [Carrie]'s grandmother, had great ideas for the decorations. ans: (Frances) is (Cindy)s mother 
+new:Cindy = "Cindy"; new:Francisco = "Francisco"; new:Carrie = "Carrie"; new:Frances = "Frances";
+(Francisco) is (Cindy)s husband & (Carrie) is (Francisco)s daughter & (Frances) is (Carrie)s grandmother & (Frances) is (Cindy)s ($relation); relation-->"#FILE(SCREEN)";
+// [Cindy] is so happy for her son. Her son [Richard] just joined the Army. [Richard] hit his brother [Wayne] in the head. [Wayne] and his sister [Carrie] stood in line at the fair. ans: (Cindy) is (Carrie)s mother 
+new:Carrie = "Carrie"; new:Wayne = "Wayne"; new:Richard = "Richard"; new:Cindy = "Cindy";
+(Wayne) is (Carrie)s brother & (Richard) is (Wayne)s brother & (Cindy) is (Richard)s mother & (Cindy) is (Carrie)s ($relation); relation-->"#FILE(SCREEN)";
+// [Evangeline] and her grandfather [James] went to the museum. [Evangeline] was bored, so they soon left. [Bobby] was sad to learn that his sister [Evangeline] was not going to make it to dinner like they had planned. [Gloria] and her brother [Bobby] were having a wonderful time at Disneyland. ans: (James) is (Gloria)s grandfather 
+new:Gloria = "Gloria"; new:Bobby = "Bobby"; new:Evangeline = "Evangeline"; new:James = "James";
+(Bobby) is (Gloria)s brother & (Evangeline) is (Bobby)s sister & (James) is (Evangeline)s grandfather & (James) is (Gloria)s ($relation); relation-->"#FILE(SCREEN)";
+// [Marie] took her sister [Evangeline] out for dinner to celebrate her birthday. [Evangeline] loves to watch stand up comedy with her brother. His name is [Bobby]. [James] and his grandson [Bobby] went to the mall to get some new clothes for both of them. ans: (Marie) is (James)s granddaughter 
+new:James = "James"; new:Bobby = "Bobby"; new:Evangeline = "Evangeline"; new:Marie = "Marie";
+(Bobby) is (James)s grandson & (Evangeline) is (Bobby)s sister & (Marie) is (Evangeline)s sister & (Marie) is (James)s ($relation); relation-->"#FILE(SCREEN)";
+// [Wayne] was having a cookout one day, and invited his sister [Natasha]. [Natasha]'s brother [Richard] drove them to the cookout. [James] asked his grandson, [Richard], what he wanted to be when he grew up. [Richard] told him he wanted to be a grandpa. ans: (Wayne) is (James)s grandson 
+new:James = "James"; new:Richard = "Richard"; new:Natasha = "Natasha"; new:Wayne = "Wayne";
+(Richard) is (James)s grandson & (Natasha) is (Richard)s sister & (Wayne) is (Natasha)s brother & (Wayne) is (James)s ($relation); relation-->"#FILE(SCREEN)";
+// [Marie] took her mother, [David], out for lunch. [Hugh] and his daughter [Marie] spent Father's Day together. [Marie] took her dad out to a sports bar, and they had a great time watching football and drinking beer there. [Francisco]'s sister [David] asked him for some help planting her garden. ans: (Francisco) is (Hugh)s brother 
+new:Hugh = "Hugh"; new:Marie = "Marie"; new:David = "David"; new:Francisco = "Francisco";
+(Marie) is (Hugh)s daughter & (David) is (Marie)s mother & (Francisco) is (David)s brother & (Francisco) is (Hugh)s ($relation); relation-->"#FILE(SCREEN)";
+// [Francisco] and his sister [Lynn] went out for coffee. [Lynn] asked her brother [Hugh] if he wanted them to bring him anything back, but he said no. [Gloria] realized that her father [Hugh] was gay. ans: (Gloria) is (Francisco)s niece 
+new:Francisco = "Francisco"; new:Lynn = "Lynn"; new:Hugh = "Hugh"; new:Gloria = "Gloria";
+(Lynn) is (Francisco)s sister & (Hugh) is (Lynn)s brother & (Gloria) is (Hugh)s daughter & (Gloria) is (Francisco)s ($relation); relation-->"#FILE(SCREEN)";
+// [Hugh]'s mother, [Frances], was too busy to play with him. She was helping her daughter, [Lynn], with her homework. [Hugh] drove his daughter [Marie] to soccer practice. ans: (Lynn) is (Marie)s aunt 
+new:Marie = "Marie"; new:Hugh = "Hugh"; new:Frances = "Frances"; new:Lynn = "Lynn";
+(Hugh) is (Marie)s father & (Frances) is (Hugh)s mother & (Lynn) is (Frances)s daughter & (Lynn) is (Marie)s ($relation); relation-->"#FILE(SCREEN)";
+// [Martha] went on a vacation with her brother [Chris]. [Charles] and her sister [Pamela] decided to take a trip to Mexico together. [Pamela] is one of my favorite students. She is the younger sister of [Chris], who I taught last year, ans: (Charles) is (Martha)s brother 
+new:Martha = "Martha"; new:Chris = "Chris"; new:Pamela = "Pamela"; new:Charles = "Charles";
+(Chris) is (Martha)s brother & (Pamela) is (Chris)s sister & (Charles) is (Pamela)s brother & (Charles) is (Martha)s ($relation); relation-->"#FILE(SCREEN)";
+// [James] sat his grandson [Don] on his knee and asked him what he wanted to be when he grew up. [Don] said he wanted to be an astronaut. [Joshua] was going to pick up his kids from school on Monday. [Don] and [Juanita] were very excited since he usually took them for ice cream after. ans: (Juanita) is (James)s granddaughter 
+new:James = "James"; new:Don = "Don"; new:Joshua = "Joshua"; new:Juanita = "Juanita";
+(Don) is (James)s grandson & (Joshua) is (Don)s father & (Juanita) is (Joshua)s daughter & (Juanita) is (James)s ($relation); relation-->"#FILE(SCREEN)";
+// [Joshua] borrowed some money from his sister [David]. [Cindy]'s sister, [David], needed help with her dinner party. Thankfully, [Cindy]'s daughter, [Natasha], was eager to pitch in/ ans: (Natasha) is (Joshua)s niece 
+new:Joshua = "Joshua"; new:David = "David"; new:Cindy = "Cindy"; new:Natasha = "Natasha";
+(David) is (Joshua)s sister & (Cindy) is (David)s sister & (Natasha) is (Cindy)s daughter & (Natasha) is (Joshua)s ($relation); relation-->"#FILE(SCREEN)";
+// [Wesley] and his wife [Lena] made promise to help their son [Charles]. [Charles]'s brother [Chris] is willing to help to. ans: (Chris) is (Lena)s son 
+new:Lena = "Lena"; new:Charles = "Charles"; new:Wesley = "Wesley"; new:Chris = "Chris";
+(Charles) is (Lena)s son & (Wesley) is (Charles)s father & (Chris) is (Wesley)s son & (Chris) is (Lena)s ($relation); relation-->"#FILE(SCREEN)";
+// [Wesley]'s brother [Joshua] missed the bus and was late for school so, [Wesley]'s sister [David] decided to drop him off. [Joseph] and his father [Joshua] played video games all day last Saturday. ans: (David) is (Joseph)s aunt 
+new:Joseph = "Joseph"; new:Joshua = "Joshua"; new:Wesley = "Wesley"; new:David = "David";
+(Joshua) is (Joseph)s father & (Wesley) is (Joshua)s brother & (David) is (Wesley)s sister & (David) is (Joseph)s ($relation); relation-->"#FILE(SCREEN)";
+// [Frances] went to see her grandson, [Wayne], playing with his soccer team. [Wayne] scored a goal, and she cheered for the boy. [Cindy] wanted to see her daughter [Carrie] and son [Wayne] so she called them and asked them to come over for dinner. ans: (Carrie) is (Frances)s granddaughter 
+new:Frances = "Frances"; new:Wayne = "Wayne"; new:Cindy = "Cindy"; new:Carrie = "Carrie";
+(Wayne) is (Frances)s grandson & (Cindy) is (Wayne)s mother & (Carrie) is (Cindy)s daughter & (Carrie) is (Frances)s ($relation); relation-->"#FILE(SCREEN)";
+// [Cindy] ate dinner with her daughter [Carrie]. [Carrie]'s brother [Richard] was running late and made it in time for dessert. [Hugh] was in the backyard throwing the baseball around with his uncle [Richard]. ans: (Hugh) is (Cindy)s brother 
+new:Cindy = "Cindy"; new:Carrie = "Carrie"; new:Richard = "Richard"; new:Hugh = "Hugh";
+(Carrie) is (Cindy)s daughter & (Richard) is (Carrie)s brother & (Hugh) is (Richard)s uncle & (Hugh) is (Cindy)s ($relation); relation-->"#FILE(SCREEN)";
+// [Gloria] went to the park to feed birds with her grandfather [James]. [Marie] called [Evangeline], her sister, to see if she wanted to go out to eat. [Gloria] took her sister [Marie] out for dinner to celebrate her birthday. ans: (James) is (Evangeline)s grandfather 
+new:Evangeline = "Evangeline"; new:Marie = "Marie"; new:Gloria = "Gloria"; new:James = "James";
+(Marie) is (Evangeline)s sister & (Gloria) is (Marie)s sister & (James) is (Gloria)s grandfather & (James) is (Evangeline)s ($relation); relation-->"#FILE(SCREEN)";
+// [Lynn] loved her mother [Frances]. She was heartbroken when she heard [Frances] had suddenly passed away. [Hugh] is a great guy, he married his highschool sweetheart and had a beautiful daughter named [Marie]. [Frances] and her husband John are the parents of [Hugh] who fathered [Marie]. ans: (Marie) is (Lynn)s niece 
+new:Lynn = "Lynn"; new:Frances = "Frances"; new:Hugh = "Hugh"; new:Marie = "Marie";
+(Frances) is (Lynn)s mother & (Hugh) is (Frances)s son & (Marie) is (Hugh)s daughter & (Marie) is (Lynn)s ($relation); relation-->"#FILE(SCREEN)";
+// [Pamela] and her mother [Lena] went to volunteer at the homeless shelter last weekend. [Joshua] took his brother [Hugh] to get lunch at a local diner. [Hugh] took his niece [Pamela] fishing Saturday. They caught a couple small fish. ans: (Joshua) is (Lena)s brother 
+new:Lena = "Lena"; new:Pamela = "Pamela"; new:Hugh = "Hugh"; new:Joshua = "Joshua";
+(Pamela) is (Lena)s daughter & (Hugh) is (Pamela)s uncle & (Joshua) is (Hugh)s brother & (Joshua) is (Lena)s ($relation); relation-->"#FILE(SCREEN)";
+// [James] and his wife [Frances] had been arguing all afternoon, but in the evening, [James] was very pleased to see his granddaughter [Marie] and grandson [Bobby] as they arrived for dinner. ans: (Bobby) is (Frances)s grandson 
+new:Frances = "Frances"; new:James = "James"; new:Marie = "Marie"; new:Bobby = "Bobby";
+(James) is (Frances)s husband & (Marie) is (James)s granddaughter & (Bobby) is (Marie)s brother & (Bobby) is (Frances)s ($relation); relation-->"#FILE(SCREEN)";
+// Worker: [Frances]'s son [Wesley] was very close to her. [Cindy] was jealous of their relationship, and wished her mom would spend more time with her. [Wesley] was so proud that his son [Charles] won the science fair! ans: (Charles) is (Cindy)s nephew 
+new:Cindy = "Cindy"; new:Frances = "Frances"; new:Wesley = "Wesley"; new:Charles = "Charles";
+(Frances) is (Cindy)s mother & (Wesley) is (Frances)s son & (Charles) is (Wesley)s son & (Charles) is (Cindy)s ($relation); relation-->"#FILE(SCREEN)";

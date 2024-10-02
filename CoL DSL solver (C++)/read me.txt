@@ -1,0 +1,1 @@
+This is a Visual Studio project designed to run on Windows.

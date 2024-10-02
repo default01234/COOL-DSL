@@ -1,0 +1,254 @@
+//化简阶段通用的变形
+expr:@(2){0+#a}{
+	return:a;
+}
+expr:@(2){#a+0}{
+	return:a;
+}
+expr:@(2){#a-0}{
+	return:a;
+}
+expr:@(2){#a*a}{
+	return:a^2;
+}
+expr:@(2){#a+a}{
+	return:2*a;
+}
+expr:@(2){#a-a}{
+	return:0;
+}
+expr:@(2){-#a+a}{
+	return:0;
+}
+expr:@(2){0*#a}{
+	return:0;
+}
+expr:@(2){#a*0}{
+	return:0;
+}
+
+
+expr:@(1.1){immediate:a+immediate:b}{
+	new:re = a+b;
+	return:re;
+}
+expr:@(1.1){immediate:a-immediate:b}{
+	new:re = a-b;
+	return:re;
+}
+expr:@(1.1){immediate:a*immediate:b}{
+	new:re = a*b;
+	return:re;
+}
+expr:@(1.1){immediate:a^immediate:b}{
+	new:re = a^b;
+	return:re;
+}
+
+//1 展开平方项
+//去平方
+expr:@(5){(#?a + #?b)^2}{
+	return:a^2+2*a*b+b^2;
+}
+expr:@(5){(#?a - #?b)^2}{
+	return:a^2+(-2)*a*b+b^2;
+}
+expr:@(6){(#a + 0)^2}{
+	return:a^2;
+}
+expr:@(6){(0 + #a)^2}{
+	return:a^2;
+}
+expr:@(6){( 0 - #a)^2}{
+	return:a^2;
+}
+expr:@(6){(#a*#b)^2}{
+	return:a^2*b^2;
+}
+
+//2 展开括号项
+//去括号
+expr:@(4){#?a-(#?b+#?c)}{
+	return:a-b-c;
+}
+expr:@(4){#?a-(#?b-#?c)}{
+	return:a-b+c;
+}
+expr:@(4){#?a+(#?b+#?c)}{
+	return:a+b+c;
+}
+expr:@(4){#?a+(#?b-#?c)}{
+	return:a+b-c;
+}
+expr:@(4){#?a*(#?b+#?c)}{
+	return:a*b+a*c;
+}
+expr:@(4){#?a*(#?b-#?c)}{
+	return:a*b-a*c;
+}
+expr:@(4){(#?b+#?c)*#?a}{
+	return:b*a+c*a;
+}
+expr:@(3.8){(#?b-#?c)*#?a}{
+	return:b*a-c*a;
+}
+
+//3 提取系数
+//此步骤将所有常数与变量分离，充分构造 .+b*x     .+b*x^2 	a*x+. 	   a*x^2+.  //a*x==.   a*x^2==.
+expr:@(-4){$x*a}{
+	return:a*x;
+}
+expr:@(4.8){(immediate:a*$x)*(immediate:b*$x)}{
+	new:tmp = a*b;
+	return:tmp*x^2;
+}
+expr:@(4.6){$x*(a*$x)}{
+	return:a*x^2;
+}
+expr:@(4.4){(a*$x)*$x}{
+	return:a*x^2;
+}
+
+expr:@(4.3){immediate:a1*(immediate:a2*$x)}{
+	new:tmp = (a1*a2);
+	return:tmp*x;
+}
+
+
+//4 减号变系数-1，补充默认系数1
+expr:@(4){#a+$x}{
+	placeholder:p1;
+	placeholder:p2;
+	if(x.exist subexpr{p1*p2}){
+		abort;
+	}
+	return:a+1*x;
+}
+expr:@(3.5){$x+#a}{
+	placeholder:p1;
+	placeholder:p2;
+	if(x.exist subexpr{p1*p2}){
+		abort;
+	}
+	return:1*x+a;
+}
+expr:@(3.5){#a-$x}{
+	placeholder:p1;
+	placeholder:p2;
+	if(x.exist subexpr{p1*p2}){
+		abort;
+	}
+	return:a+(-1)*x;
+}
+expr:@(3.7){#a-immediate:b*$x}{
+	new:tmp = 0 - b;
+	return:a+tmp*x;
+}
+
+expr:@(3.3){#a-immediate:b}{
+	new:tmp = 0-b;
+	return:a+tmp;
+}
+
+//5 降幂排列 并 合并同类项
+expr:@(3){immediate:a*$x+immediate:b*$x}{
+	new:tmp = a+b;
+	return:tmp*x;
+}
+expr:@(3){$y + immediate:a*$x+immediate:b*$x}{
+	new:tmp = a+b;
+	return:y+ tmp*x;
+}
+expr:@(3){$x + immediate:a+immediate:b}{
+	new:tmp = a+b;
+	return:x+ tmp;
+}
+
+expr:@(2.8){a+$x}{
+	return:x+a;
+}
+expr:@(2.6){$y + a+$x}{
+	return:y + x+a;
+}
+
+expr:@(2.8){a1*$x+a2*$x^2}{
+	return:a2*x^2+a1*x;
+}
+expr:@(2.6){$y + a1*$x+a2*$x^2}{
+	return:y + a2*x^2+a1*x;
+}
+
+
+//6 化标准型
+expr:@(-9){a*$x^2+b*x == #d}{
+	return: a*$x^2+b*x + 0 == d;
+	
+}
+expr:@(-9){a*$x^2+c == #d}{
+	return: a*$x^2+0*x + c == d;	
+}
+expr:@(-18){a*$x^2 == #d}{
+	return: a*$x^2+0*x + 0 == d;	
+}
+expr:@(-27){$x^2 == #d}{
+	return: 1*$x^2+0*x + 0 == d;	
+}
+expr:@(-18){b*$x + c == $d}{
+	
+	if(d.exist subexpr{x^2}){
+		return: 0*x^2 + b*x + c == d;
+	}else {
+		abort;
+	}
+	
+}
+expr:@(-27){b*$x == $d}{
+	
+	if(d.exist subexpr{x^2}){
+		return: 0*x^2 + b*x + 0 == d;
+	}else {
+		abort;
+	}
+}
+expr:@(-36){$x == $d}{
+	
+	if(d.exist subexpr{x^2}){
+		return: 0*x^2 + 1*x + 0 == d;
+	}else {
+		abort;
+	}
+}
+expr:@(-8){$a==$b}{
+	return:b==a;
+}
+expr:@(2.2){immediate:a==$b}{
+	return:b==a;
+}
+
+expr:@(6){immediate:a1*$x^2 + immediate:b1 *$x + immediate:c1 ==immediate:a2*$x^2 + immediate:b2 *$x + immediate:c2 }{
+	new:a3 = a1-a2;
+	new:b3 = b1-b2;
+	new:c3 = c1-c2;
+	return:a3*x^2 + b3*x+c3 == 0;
+	
+}
+
+expr:@(6){immediate:a1*$x^2 + immediate:b1 *$x + immediate:c1 == immediate:c2 }{
+	if(c2 == 0){
+		abort;
+	}
+	new:c3 = c1-c2;
+	return:a1*x^2 + b1*x+c3 == 0;
+}
+
+//7 应用求解公式
+@(10){a*$x^2+b*x+c==0}{
+	if(b^2-4*a*c<0){
+		x="null";
+	}
+	else {
+		new:x1=(-b+(b^2-4*a*c)^0.5)/(2*a);
+		new:x2=(-b-(b^2-4*a*c)^0.5)/(2*a);
+		x={x1,x2};	
+	}
+};

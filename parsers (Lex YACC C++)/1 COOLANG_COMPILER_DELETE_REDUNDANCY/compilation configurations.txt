@@ -1,0 +1,2 @@
+//ԭѡ�g++ -std=c++11 lex.yy.c y.tab.c coolang_compiler.cpp
+g++ -std=c++17 y.tab.c lex.yy.c

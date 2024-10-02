@@ -1,0 +1,4 @@
+"*.txt / *.cos" files are COOL source code.
+"*.coc" files are compiled TAC code on which the DSL solver operates.
+"control~.*" files contain code used to calculate the impact of specific dependent control variables (such as library execution) on the program synthesis task.
+The "test" folder illustrates the organization of a COOL DSL project.

@@ -1,0 +1,405 @@
+
+
+
+
+//gender-unrelated relationships, 3 persons
+expr:@(0,0,5){(a) is (b)s sibling}{
+	placeholder:p1;
+	while(this expr.find subexpr{(p1) is (a)s sibling}){
+		if(this expr.exist subexpr{(p1) is (b)s sibling} == false && p1 != b){
+			return: (a) is (b)s sibling & (p1) is (b)s sibling;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s parent}){
+		if(this expr.exist subexpr{(p1) is (b)s parent} == false){
+			return: (a) is (b)s sibling & (p1) is (b)s parent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s pibling}){
+		if(this expr.exist subexpr{(p1) is (b)s pibling} == false){
+			return: (a) is (b)s sibling & (p1) is (b)s pibling;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s grandparent}){
+		if(this expr.exist subexpr{(p1) is (b)s grandparent} == false){
+			return: (a) is (b)s sibling & (p1) is (b)s grandparent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	abort;
+}
+expr:@(0,0,5){(a) is (b)s spouse}{
+	placeholder:p1;
+	while(this expr.find subexpr{(p1) is (a)s parent}){
+		if(this expr.exist subexpr{(p1) is (b)s parent in law} == false){
+			return: (a) is (b)s spouse & (p1) is (b)s parent in law;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	abort;
+}
+
+expr:@(0,0,5){(a) is (b)s parent}{
+	placeholder:p1;
+	while(this expr.find subexpr{(p1) is (a)s sibling}){
+		if(this expr.exist subexpr{(p1) is (b)s pibling} == false){
+			return: (a) is (b)s parent & (p1) is (b)s pibling;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s spouse}){
+		if(this expr.exist subexpr{(p1) is (b)s parent} == false){
+			return: (a) is (b)s parent & (p1) is (b)s parent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s parent}){
+		if(this expr.exist subexpr{(p1) is (b)s grandparent} == false){
+			return: (a) is (b)s parent & (p1) is (b)s grandparent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s parent in law}){
+		if(this expr.exist subexpr{(p1) is (b)s grandparent} == false){
+			return: (a) is (b)s parent & (p1) is (b)s grandparent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	
+	//p1 & b relationships
+
+	while(this expr.find subexpr{(p1) is (b)s parent}){
+		if(this expr.exist subexpr{(p1) is (a)s spouse} == false && p1!=a){
+			return: (a) is (b)s parent & (p1) is (a)s spouse;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	
+	while(this expr.find subexpr{(p1) is (b)s pibling}){
+		if(this expr.exist subexpr{(p1) is (a)s sibling} == false && p1!=a){
+			return: (a) is (b)s parent & (p1) is (a)s sibling;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	
+	
+	
+	while(this expr.find subexpr{(p1) is (b)s grandparent}){
+		if(this expr.exist subexpr{(p1) is (a)s parent} == false){
+			return: (a) is (b)s parent & (p1) is (a)s parent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	
+	// a & p1 relationships
+	while(this expr.find subexpr{(a) is (p1)s parent}){
+		if(this expr.exist subexpr{(p1) is (b)s sibling} == false && p1!=b){
+			return: (a) is (b)s parent & (p1) is (b)s sibling;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	
+	
+	abort;
+}
+expr:@(0,0,5){(a) is (b)s parent in law}{
+	placeholder:p1;
+	while(this expr.find subexpr{(p1) is (a)s spouse}){
+		if(this expr.exist subexpr{(p1) is (b)s parent in law} == false){
+			return: (a) is (b)s parent in law& (p1) is (b)s parent in law;
+		}
+		p1.reset();
+	}
+	p1.reset();
+
+	abort;
+}
+expr:@(0,0,5){(a) is (b)s pibling}{
+	placeholder:p1;
+	while(this expr.find subexpr{(p1) is (a)s spouse}){
+		if(this expr.exist subexpr{(p1) is (b)s pibling} == false){
+			return: (a) is (b)s pibling & (p1) is (b)s pibling;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(p1) is (a)s parent}){
+		if(this expr.exist subexpr{(p1) is (b)s grandparent} == false){
+			return: (a) is (b)s pibling & (p1) is (b)s grandparent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	abort;
+}
+expr:@(0,0,5){(a) is (b)s grandparent}{
+	placeholder:p1;
+	while(this expr.find subexpr{(p1) is (a)s spouse}){
+		if(this expr.exist subexpr{(p1) is (b)s grandparent} == false){
+			return: (a) is (b)s grandparent & (p1) is (b)s grandparent;
+		}
+		p1.reset();
+	}
+	p1.reset();
+	abort;
+}
+
+expr:@(0,0,0,8){(a) is (b)s ($relation)}{
+	//immediate family
+	placeholder:p1;
+	while(this expr.find subexpr{(a) is (b)s grandchild}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "grandson";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "granddaughter";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s child}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "son";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "daughter";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s child in law}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "son in law";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "daughter in law";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s nibling}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "nephew";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "niece";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s sibling}){
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "brother";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "sister";
+		}	
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s spouse}){
+		if(this expr. exist subexpr{(a) is male}|| this expr. exist subexpr{(b) is female}){
+			return: $relation == "husband";
+		}
+		if(this expr.exist subexpr{(a) is female} || this expr.exist subexpr{(b) is male}){
+			return:$relation == "wife";
+		}	
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s parent}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "father";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "mother";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s parent in law}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "father in law";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "mother in law";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s pibling}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "uncle";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "aunt";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	while(this expr.find subexpr{(a) is (b)s grandparent}){	
+		if(this expr. exist subexpr{(a) is male}){
+			return: $relation == "grandfather";
+		}
+		if(this expr.exist subexpr{(a) is female}){
+			return:$relation == "grandmother";
+		}
+		p1.reset();
+	}
+	p1.reset();
+	abort;
+}
+
+
+//gender-unrelated relationships (2 persons)
+expr:@(0,7,3){(a) is (b)s grandchild}{
+	if(this expr.exist subexpr{(b) is (a)s grandparent} == false){
+		return: (a) is (b)s grandchild & (b) is (a)s grandparent;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s nibling}{
+	if(this expr.exist subexpr{(b) is (a)s pibling} == false){
+		return: (a) is (b)s nibling & (b) is (a)s pibling;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s child}{
+	if(this expr.exist subexpr{(b) is (a)s parent} == false){
+		return: (a) is (b)s child & (b) is (a)s parent;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s child in law}{
+	if(this expr.exist subexpr{(b) is (a)s parent in law} == false){
+		return: (a) is (b)s child in law& (b) is (a)s parent in law;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s sibling}{
+	if(this expr.exist subexpr{(b) is (a)s sibling} == false){
+		return: (a) is (b)s sibling & (b) is (a)s sibling;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s spouse}{
+	if(this expr.exist subexpr{(b) is (a)s spouse} == false){
+		return: (a) is (b)s spouse & (b) is (a)s spouse;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s parent}{
+	if(this expr.exist subexpr{(b) is (a)s child} == false){
+		return: (a) is (b)s parent & (b) is (a)s child;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s parent in law}{
+	if(this expr.exist subexpr{(b) is (a)s child in law} == false){
+		return: (a) is (b)s parent in law & (b) is (a)s child in law;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s pibling}{
+	if(this expr.exist subexpr{(b) is (a)s nibling} == false){
+		return: (a) is (b)s pibling & (b) is (a)s nibling;
+	}
+	abort;
+}
+expr:@(0,7,3){(a) is (b)s grandparent}{
+	if(this expr.exist subexpr{(b) is (a)s grandchild} == false){
+		return: (a) is (b)s grandparent & (b) is (a)s grandchild;
+	}
+	abort;
+}
+expr:@(0,0,0,10){a & ($b == c)}{
+	return:b == c;
+}
+expr:@(0,0,0,10){($b == c)& a}{
+	return:b == c;
+}
+@(0,0,0,10){($b == c)}{
+	b = c;	
+}
+
+//gender-related relationships (2 persons)
+
+expr:@(9){(a) is (b)s grandson}{
+	return:(a) is male &  (a) is (b)s grandchild & (b) is (a)s grandparent;
+}
+
+expr:@(9){(a) is (b)s granddaughter}{
+	return:(a) is female & (a) is (b)s grandchild & (b) is (a)s grandparent;
+}
+expr:@(9){(a) is (b)s son}{
+	return:(a) is male &(a) is (b)s child&  (b) is (a)s parent;
+}
+expr:@(9){(a) is (b)s daughter}{
+	return:(a) is female &(a) is (b)s child&  (b) is (a)s parent;
+}
+expr:@(9){(a) is (b)s son in law}{
+	return:(a) is male &(a) is (b)s child in law&  (b) is (a)s parent in law;
+}
+expr:@(9){(a) is (b)s daughter in law}{
+	return:(a) is female & (a) is (b)s child in law& (b) is (a)s parent in law;
+}
+expr:@(9){(a) is (b)s nephew}{
+	return:(a) is male &(a) is (b)s nibling &  (b) is (a)s pibling;
+}
+expr:@(9){(a) is (b)s niece}{
+	return:(a) is female & (a) is (b)s nibling& (b) is (a)s pibling;
+}
+expr:@(9){(a) is (b)s husband}{
+	return:(a) is male &(a) is (b)s spouse &  (b) is (a)s spouse;
+}
+expr:@(9){(a) is (b)s wife}{
+	return:(a) is female & (a) is (b)s spouse& (b) is (a)s spouse;
+}
+expr:@(9){(a) is (b)s brother}{
+	return: (a) is male & (a) is (b)s sibling & (b) is (a)s sibling;
+}
+expr:@(9){(a) is (b)s sister}{
+	return: (a) is female & (a) is (b)s sibling & (b) is (a)s sibling;
+}
+
+expr:@(9){(a) is (b)s father}{
+	return: (a) is male & (a) is (b)s parent & (b) is (a)s child;
+}
+expr:@(9){(a) is (b)s mother}{
+	return: (a) is female & (a) is (b)s parent & (b) is (a)s child;
+}
+
+expr:@(9){(a) is (b)s father in law}{
+	return: (a) is male & (a) is (b)s parent  in law& (b) is (a)s child in law;
+}
+expr:@(9){(a) is (b)s mother in law}{
+	return: (a) is female & (a) is (b)s parent in law& (b) is (a)s child in law;
+}
+expr:@(9){(a) is (b)s uncle}{
+	return: (a) is male & (a) is (b)s pibling & (b) is (a)s nibling;
+}
+expr:@(9){(a) is (b)s aunt}{
+	return: (a) is female & (a) is (b)s pibling & (b) is (a)s nibling;
+}
+expr:@(9){(a) is (b)s grandfather}{
+	return: (a) is male & (a) is (b)s grandparent & (b) is (a)s grandchild;
+}
+expr:@(9){(a) is (b)s grandmother}{
+	return: (a) is female & (a) is (b)s grandparent & (b) is (a)s grandchild;
+}
