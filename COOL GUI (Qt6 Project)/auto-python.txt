@@ -1,0 +1,130 @@
+auto
+add(int arg_1, float arg_2) Add two integers together
+bool
+break
+case
+catch
+char
+class
+const
+continue
+default
+delete
+do
+double
+else
+enum
+explicit
+export
+extern
+false
+float
+for
+friend
+goto
+inline
+int
+long
+mutable
+namespace
+new
+operator
+private
+protected
+public
+register
+return
+short
+signed
+sizeof
+static
+struct
+switch
+template
+this
+throw
+true
+try
+typedef
+union
+unsigned
+using
+virtual
+void
+main
+print
+complex
+eval
+exec() 
+format() 
+frozenset() 
+globals() 
+locals() 
+hash() 
+help() 
+id() 
+input() 
+int() 
+iter() 
+next() 
+oct() 
+print (pow(2,3))
+repr() 
+print (round(50.2323,2)) >>>50.23
+cmp(obj1,obj2)
+bool()
+abs() 
+print (enumerate([1,2,3],1))
+max()
+min() 
+sum(int arg_1, float arg_2) Add two integers together
+filter() 
+map() 
+lst = [1,2,3,4,5,6,7]
+open() 
+range() 
+print(sep="",end="\n") 
+len() 
+str()
+list()
+tuple() 
+dict()
+set()
+bin()
+float() 
+reversed()
+sorted
+type() 
+zip() 
+dir() 
+reduce()
+from functools import reduce
+print(reduce(lambda x,y:x-y,[1,2,3,4,5]))
+classmethod() 
+hasattr() 
+getattr() 
+setattr() 
+delattr() 
+isinstance() 
+issubclass() 
+object() 
+property() 
+staticmethod() 
+super()
+vars()
+join()
+append
+insert
+extend
+remove
+clear
+reverse
+sort
+setdefault
+print(s.isalnum())  判断是不是字母,数字,中文
+print(s.isalpha())   判断是不是字母,中文
+print(s.isdigit())   判断字符串是不是全都是阿拉伯数字
+print(s.isdecimal())   判断是否是十进制
+
+
+
